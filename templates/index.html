@@ -5,32 +5,37 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AI.dev | AI Software Engineer</title>
+<title>ISKAK.dev | AI Software Engineer</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
 <style>
 
-/* =========================
+/* =========================================================
 ROOT
-========================= */
+========================================================= */
 
 :root{
---bg:#050816;
+--bg:#040816;
 --card:rgba(255,255,255,.05);
 --border:rgba(255,255,255,.08);
+
 --text:#fff;
---muted:#9ca3af;
+--muted:#94a3b8;
+
 --blue:#3b82f6;
 --purple:#8b5cf6;
 --pink:#ec4899;
---glass:blur(18px);
+
+--radius:34px;
 }
 
-/* =========================
+/* =========================================================
 GLOBAL
-========================= */
+========================================================= */
 
 *{
 margin:0;
@@ -49,178 +54,176 @@ color:#fff;
 overflow-x:hidden;
 }
 
-/* =========================
+/* =========================================================
 BACKGROUND
-========================= */
+========================================================= */
 
 .bg{
 position:fixed;
 inset:0;
-z-index:-10;
+z-index:-20;
+
 background:
-radial-gradient(circle at 10% 20%, rgba(59,130,246,.18), transparent 30%),
+radial-gradient(circle at 10% 20%, rgba(59,130,246,.22), transparent 30%),
 radial-gradient(circle at 90% 10%, rgba(139,92,246,.18), transparent 30%),
 radial-gradient(circle at 50% 90%, rgba(236,72,153,.12), transparent 35%),
-linear-gradient(to bottom,#050816,#070b1d,#050816);
+linear-gradient(to bottom,#050816,#07101f,#050816);
 }
 
 .grid-bg{
 position:fixed;
 inset:0;
+z-index:-19;
+
 background-image:
 linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
 linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+
 background-size:70px 70px;
-mask-image:linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
-z-index:-9;
+
+mask-image:linear-gradient(to bottom,transparent,black 20%,black 80%,transparent);
 }
 
-/* =========================
+/* =========================================================
+CURSOR LIGHT
+========================================================= */
+
+.cursor{
+position:fixed;
+
+width:300px;
+height:300px;
+
+border-radius:50%;
+
+background:rgba(59,130,246,.10);
+
+filter:blur(100px);
+
+pointer-events:none;
+
+z-index:-18;
+}
+
+/* =========================================================
 PARTICLES
-========================= */
+========================================================= */
 
 .particles{
 position:fixed;
 inset:0;
 overflow:hidden;
-z-index:-8;
+z-index:-17;
 }
 
 .particles span{
 position:absolute;
-display:block;
+
 width:4px;
 height:4px;
+
 background:#fff;
 border-radius:50%;
+
 opacity:.2;
+
 animation:particle 15s linear infinite;
 }
 
 @keyframes particle{
+
 from{
 transform:translateY(100vh) scale(0);
 opacity:0;
 }
+
 50%{
 opacity:.5;
 }
+
 to{
 transform:translateY(-100vh) scale(1.5);
 opacity:0;
 }
+
 }
 
-/* =========================
-BLURS
-========================= */
-
-.blur1,
-.blur2{
-position:fixed;
-width:500px;
-height:500px;
-border-radius:50%;
-filter:blur(120px);
-z-index:-7;
-}
-
-.blur1{
-background:rgba(59,130,246,.18);
-top:-100px;
-left:-100px;
-animation:float1 12s infinite alternate ease-in-out;
-}
-
-.blur2{
-background:rgba(139,92,246,.15);
-bottom:-120px;
-right:-120px;
-animation:float2 12s infinite alternate ease-in-out;
-}
-
-@keyframes float1{
-to{
-transform:translate(100px,80px);
-}
-}
-
-@keyframes float2{
-to{
-transform:translate(-120px,-80px);
-}
-}
-
-/* =========================
-CURSOR
-========================= */
-
-.cursor{
-position:fixed;
-width:260px;
-height:260px;
-border-radius:50%;
-background:rgba(59,130,246,.10);
-filter:blur(90px);
-pointer-events:none;
-z-index:-6;
-}
-
-/* =========================
+/* =========================================================
 LOADER
-========================= */
+========================================================= */
 
 .loader{
 position:fixed;
 inset:0;
+
 background:#050816;
+
 display:flex;
 justify-content:center;
 align-items:center;
+
 z-index:99999;
+
 transition:1s;
 }
 
 .loader h1{
 font-size:70px;
 font-weight:900;
+
 background:linear-gradient(90deg,#3b82f6,#8b5cf6,#ec4899);
+
 -webkit-background-clip:text;
 color:transparent;
-animation:pulse 1s infinite alternate;
+
+animation:pulse 1.2s infinite alternate;
 }
 
 @keyframes pulse{
 to{
-transform:scale(1.05);
+transform:scale(1.08);
 }
 }
 
-/* =========================
+/* =========================================================
 NAVBAR
-========================= */
+========================================================= */
 
 nav{
 position:fixed;
+
 top:18px;
 left:50%;
 transform:translateX(-50%);
+
 width:min(1400px,95%);
-padding:16px 26px;
+
+padding:16px 28px;
+
 display:flex;
-align-items:center;
 justify-content:space-between;
+align-items:center;
+
 background:rgba(255,255,255,.05);
-backdrop-filter:blur(22px);
+
 border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(22px);
+
 border-radius:999px;
+
 z-index:999;
+
+box-shadow:
+0 10px 40px rgba(0,0,0,.25);
 }
 
 .logo{
-font-size:24px;
+font-size:28px;
 font-weight:900;
-background:linear-gradient(90deg,#fff,#60a5fa);
+
+background:linear-gradient(90deg,#fff,#60a5fa,#8b5cf6);
+
 -webkit-background-clip:text;
 color:transparent;
 }
@@ -228,6 +231,7 @@ color:transparent;
 .menu{
 display:flex;
 gap:35px;
+align-items:center;
 }
 
 .menu a{
@@ -239,12 +243,17 @@ position:relative;
 
 .menu a::after{
 content:'';
+
 position:absolute;
+
 left:0;
 bottom:-8px;
+
 width:0;
 height:2px;
+
 background:linear-gradient(90deg,#3b82f6,#8b5cf6);
+
 transition:.4s;
 }
 
@@ -252,21 +261,28 @@ transition:.4s;
 width:100%;
 }
 
-/* =========================
-MENU BUTTON
-========================= */
+/* =========================================================
+MENU BTN
+========================================================= */
 
 .menu-btn{
 display:none;
+
 width:55px;
 height:55px;
+
 border-radius:18px;
+
 background:rgba(255,255,255,.05);
+
 border:1px solid rgba(255,255,255,.08);
+
 justify-content:center;
 align-items:center;
 flex-direction:column;
+
 gap:7px;
+
 cursor:pointer;
 }
 
@@ -285,23 +301,31 @@ transform:rotate(45deg) translateY(6px);
 transform:rotate(-45deg) translateY(-6px);
 }
 
-/* =========================
+/* =========================================================
 MOBILE MENU
-========================= */
+========================================================= */
 
 .mobile-menu{
 position:fixed;
+
 top:0;
 right:-100%;
+
 width:320px;
 height:100vh;
-background:rgba(5,8,22,.95);
-backdrop-filter:blur(30px);
+
+padding:130px 40px;
+
 display:flex;
 flex-direction:column;
-padding:130px 40px;
 gap:35px;
+
+background:rgba(5,8,22,.96);
+
+backdrop-filter:blur(30px);
+
 transition:.5s;
+
 z-index:998;
 }
 
@@ -316,63 +340,100 @@ font-size:24px;
 font-weight:600;
 }
 
-/* =========================
-HERO
-========================= */
+/* =========================================================
+SECTION
+========================================================= */
 
-.hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
+section{
+max-width:1400px;
+margin:auto;
 padding:120px 20px;
 }
 
-.hero-box{
-max-width:1300px;
-width:100%;
-display:grid;
-grid-template-columns:1.1fr .9fr;
-gap:60px;
+/* =========================================================
+HERO
+========================================================= */
+
+.hero{
+min-height:100vh;
+
+display:flex;
+justify-content:center;
 align-items:center;
 }
+
+.hero-box{
+width:100%;
+max-width:1350px;
+
+display:grid;
+grid-template-columns:1.1fr .9fr;
+
+gap:80px;
+align-items:center;
+}
+
+/* =========================================================
+BADGE
+========================================================= */
 
 .badge{
 display:inline-flex;
 align-items:center;
-gap:10px;
-padding:12px 20px;
+gap:12px;
+
+padding:12px 22px;
+
 border-radius:999px;
+
 background:rgba(255,255,255,.05);
+
 border:1px solid rgba(255,255,255,.08);
-margin-bottom:25px;
+
+margin-bottom:30px;
+
+backdrop-filter:blur(15px);
 }
 
 .dot{
 width:10px;
 height:10px;
+
 border-radius:50%;
+
 background:#22c55e;
+
 box-shadow:0 0 15px #22c55e;
 }
 
+/* =========================================================
+TEXT
+========================================================= */
+
 .hero h1{
-font-size:clamp(60px,9vw,130px);
-line-height:.9;
+font-size:clamp(65px,9vw,140px);
+
+line-height:.88;
+
 font-weight:900;
+
+letter-spacing:-5px;
+
 margin-bottom:30px;
-letter-spacing:-4px;
 }
 
 .gradient{
 background:linear-gradient(90deg,#3b82f6,#8b5cf6,#ec4899);
+
 background-size:300%;
+
 -webkit-background-clip:text;
 color:transparent;
-animation:move 6s linear infinite;
+
+animation:gradientMove 6s linear infinite;
 }
 
-@keyframes move{
+@keyframes gradientMove{
 to{
 background-position:300%;
 }
@@ -380,13 +441,19 @@ background-position:300%;
 
 .hero p{
 font-size:20px;
-line-height:1.8;
+line-height:1.9;
 color:var(--muted);
-max-width:700px;
+
+max-width:720px;
 }
+
+/* =========================================================
+BUTTONS
+========================================================= */
 
 .hero-buttons{
 margin-top:40px;
+
 display:flex;
 gap:20px;
 flex-wrap:wrap;
@@ -394,39 +461,177 @@ flex-wrap:wrap;
 
 .btn{
 padding:18px 34px;
+
 border-radius:999px;
+
 text-decoration:none;
 font-weight:700;
+
 transition:.4s;
+
+position:relative;
+overflow:hidden;
 }
 
-.primary{
-background:linear-gradient(90deg,#3b82f6,#8b5cf6);
-color:#fff;
-box-shadow:0 10px 40px rgba(59,130,246,.4);
+.btn::before{
+content:'';
+
+position:absolute;
+top:0;
+left:-100%;
+
+width:100%;
+height:100%;
+
+background:linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,.25),
+transparent
+);
+
+transition:.6s;
 }
 
-.secondary{
-border:1px solid rgba(255,255,255,.1);
-background:rgba(255,255,255,.04);
-color:#fff;
+.btn:hover::before{
+left:100%;
 }
 
 .btn:hover{
 transform:translateY(-8px);
 }
 
-/* =========================
-AI CARD
-========================= */
+.primary{
+background:linear-gradient(90deg,#3b82f6,#8b5cf6);
+
+color:#fff;
+
+box-shadow:
+0 10px 40px rgba(59,130,246,.4);
+}
+
+.secondary{
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+color:#fff;
+}
+
+/* =========================================================
+RIGHT SIDE
+========================================================= */
+
+.hero-right{
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+gap:35px;
+}
+
+/* =========================================================
+PROFILE IMAGE
+========================================================= */
+
+.profile-wrap{
+position:relative;
+}
+
+.profile-glow{
+position:absolute;
+
+inset:-30px;
+
+background:
+linear-gradient(
+135deg,
+rgba(59,130,246,.4),
+rgba(139,92,246,.4),
+rgba(236,72,153,.3)
+);
+
+filter:blur(40px);
+
+border-radius:40px;
+
+opacity:.7;
+}
+
+.profile-img-box{
+position:relative;
+
+width:360px;
+height:460px;
+
+border-radius:34px;
+
+overflow:hidden;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+box-shadow:
+0 20px 80px rgba(0,0,0,.45);
+
+transition:.6s;
+}
+
+.profile-img-box img{
+width:100%;
+height:100%;
+object-fit:cover;
+
+transition:1s;
+}
+
+.profile-img-box:hover{
+transform:
+translateY(-12px)
+scale(1.03)
+rotateY(-4deg);
+
+box-shadow:
+0 35px 100px rgba(59,130,246,.25);
+}
+
+.profile-img-box:hover img{
+transform:scale(1.08);
+}
+
+/* =========================================================
+CODE CARD
+========================================================= */
 
 .hero-card{
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
-border-radius:35px;
+width:100%;
+
 padding:35px;
+
+border-radius:34px;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
 backdrop-filter:blur(20px);
-box-shadow:0 20px 60px rgba(0,0,0,.35);
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.35);
+
+transition:.5s;
+}
+
+.hero-card:hover{
+transform:
+translateY(-10px)
+rotateX(2deg);
+
+box-shadow:
+0 30px 80px rgba(59,130,246,.2);
 }
 
 .top-bar{
@@ -448,145 +653,397 @@ border-radius:50%;
 .code{
 font-family:monospace;
 line-height:2;
-color:#d1d5db;
+color:#dbeafe;
 }
 
 .code span{
 color:#60a5fa;
 }
 
-/* =========================
-SECTION
-========================= */
-
-section{
-max-width:1400px;
-margin:auto;
-padding:120px 20px;
-}
+/* =========================================================
+TITLE
+========================================================= */
 
 .section-title{
-font-size:58px;
-text-align:center;
-margin-bottom:70px;
+font-size:62px;
 font-weight:900;
+
+text-align:center;
+
+margin-bottom:80px;
+
+position:relative;
 }
+
+.section-title::after{
+content:'';
+
+position:absolute;
+
+left:50%;
+bottom:-20px;
+
+transform:translateX(-50%);
+
+width:120px;
+height:4px;
+
+border-radius:999px;
+
+background:linear-gradient(90deg,#3b82f6,#8b5cf6,#ec4899);
+}
+
+/* =========================================================
+GRID
+========================================================= */
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:28px;
+
+grid-template-columns:
+repeat(auto-fit,minmax(300px,1fr));
+
+gap:30px;
 }
 
-/* =========================
+/* =========================================================
 CARD
-========================= */
+========================================================= */
 
 .card{
-background:rgba(255,255,255,.05);
+position:relative;
+
+padding:38px;
+
+border-radius:34px;
+
+background:
+linear-gradient(
+180deg,
+rgba(255,255,255,.07),
+rgba(255,255,255,.03)
+);
+
 border:1px solid rgba(255,255,255,.08);
-border-radius:35px;
-padding:35px;
-transition:.5s;
+
 backdrop-filter:blur(20px);
+
+overflow:hidden;
+
+transition:.5s;
+}
+
+.card::before{
+content:'';
+
+position:absolute;
+inset:0;
+
+background:
+linear-gradient(
+135deg,
+rgba(255,255,255,.08),
+transparent
+);
+
+opacity:0;
+
+transition:.5s;
+}
+
+.card:hover::before{
+opacity:1;
 }
 
 .card:hover{
-transform:translateY(-14px);
+transform:
+translateY(-16px)
+scale(1.02);
+
 border-color:rgba(59,130,246,.4);
-box-shadow:0 20px 60px rgba(0,0,0,.35);
+
+box-shadow:
+0 25px 80px rgba(0,0,0,.35);
 }
 
 .card h3{
-font-size:24px;
-margin-bottom:15px;
+font-size:25px;
+margin-bottom:18px;
 }
 
 .card p{
-line-height:1.8;
+line-height:1.9;
 color:var(--muted);
 }
 
-/* =========================
+/* =========================================================
+PROJECT IMAGE
+========================================================= */
+
+.project-image{
+width:100%;
+height:220px;
+
+border-radius:24px;
+
+overflow:hidden;
+
+margin-bottom:25px;
+
+border:1px solid rgba(255,255,255,.08);
+}
+
+.project-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+
+transition:1s;
+}
+
+.card:hover .project-image img{
+transform:scale(1.08);
+}
+
+/* =========================================================
+PROJECT LINK
+========================================================= */
+
+.project-link{
+display:inline-flex;
+align-items:center;
+gap:10px;
+
+margin-top:20px;
+
+text-decoration:none;
+
+color:#60a5fa;
+
+font-weight:700;
+}
+
+.project-link:hover{
+gap:18px;
+}
+
+/* =========================================================
 STATS
-========================= */
+========================================================= */
 
 .stats{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
 gap:25px;
 }
 
 .stat{
 padding:45px;
+
 text-align:center;
+
+border-radius:34px;
+
 background:rgba(255,255,255,.05);
-border-radius:35px;
+
 border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(18px);
+
+transition:.5s;
+}
+
+.stat:hover{
+transform:translateY(-10px);
+
+box-shadow:
+0 25px 60px rgba(59,130,246,.18);
 }
 
 .num{
 font-size:75px;
 font-weight:900;
+
 background:linear-gradient(90deg,#3b82f6,#8b5cf6);
+
 -webkit-background-clip:text;
 color:transparent;
 }
 
-/* =========================
-PROJECT
-========================= */
-
-.project-link{
-display:inline-flex;
-gap:10px;
-margin-top:20px;
-text-decoration:none;
-color:#60a5fa;
-font-weight:700;
-}
-
-/* =========================
+/* =========================================================
 CONTACT
-========================= */
+========================================================= */
 
-.contact{
-text-align:center;
+.contact-buttons{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:24px;
+
+margin-top:50px;
 }
 
-.contact p{
-font-size:20px;
-margin:15px 0;
+.lux-btn{
+position:relative;
+
+display:flex;
+align-items:center;
+gap:12px;
+
+padding:16px 28px;
+
+border-radius:18px;
+
+text-decoration:none;
+
+color:#fff;
+
+font-weight:600;
+
+background:rgba(255,255,255,.06);
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(18px);
+
+overflow:hidden;
+
+transition:.4s;
 }
 
-/* =========================
+.lux-btn::before{
+content:'';
+
+position:absolute;
+
+top:0;
+left:-100%;
+
+width:100%;
+height:100%;
+
+background:
+linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,.2),
+transparent
+);
+
+transition:.6s;
+}
+
+.lux-btn:hover::before{
+left:100%;
+}
+
+.lux-btn:hover{
+transform:
+translateY(-8px)
+scale(1.05);
+}
+
+.telegram i{
+color:#24A1DE;
+}
+
+.instagram i{
+color:#E4405F;
+}
+
+.whatsapp i{
+color:#25D366;
+}
+
+/* =========================================================
+RUNNING TECH
+========================================================= */
+
+.tech-marquee{
+margin-top:90px;
+
+overflow:hidden;
+
+position:relative;
+}
+
+.tech-track{
+display:flex;
+gap:25px;
+
+width:max-content;
+
+animation:marquee 22s linear infinite;
+}
+
+.tech-item{
+padding:16px 28px;
+
+border-radius:999px;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(18px);
+
+white-space:nowrap;
+
+font-weight:600;
+}
+
+@keyframes marquee{
+from{
+transform:translateX(0);
+}
+to{
+transform:translateX(-50%);
+}
+}
+
+/* =========================================================
 FOOTER
-========================= */
+========================================================= */
 
 footer{
 padding:50px;
 text-align:center;
-color:#9ca3af;
+
+color:#94a3b8;
+
+border-top:1px solid rgba(255,255,255,.08);
 }
 
-/* =========================
+/* =========================================================
 REVEAL
-========================= */
+========================================================= */
 
 .reveal{
 opacity:0;
-transform:translateY(80px);
+
+transform:
+translateY(80px)
+scale(.95);
+
+filter:blur(10px);
+
 transition:1s;
 }
 
 .reveal.show{
 opacity:1;
+
 transform:none;
+
+filter:blur(0);
 }
 
-/* =========================
-MOBILE
-========================= */
+/* =========================================================
+RESPONSIVE
+========================================================= */
 
 @media(max-width:980px){
 
@@ -603,11 +1060,11 @@ display:flex;
 }
 
 .hero h1{
-font-size:65px;
+font-size:70px;
 }
 
 .section-title{
-font-size:42px;
+font-size:46px;
 }
 
 .hero-buttons{
@@ -619,67 +1076,13 @@ width:100%;
 text-align:center;
 }
 
-}
-.contact-buttons{
-  display:flex;
-  gap:20px;
-  flex-wrap:wrap;
-  justify-content:center;
-  margin-top:20px;
+.profile-img-box{
+width:100%;
+max-width:360px;
+height:430px;
 }
 
-/* Base Button */
-.lux-btn{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:14px 22px;
-  border-radius:14px;
-
-  color:#fff;
-  text-decoration:none;
-  font-weight:600;
-  font-size:16px;
-
-  background:rgba(255,255,255,0.08);
-  border:1px solid rgba(255,255,255,0.15);
-  backdrop-filter: blur(12px);
-
-  transition:0.3s ease;
-  position:relative;
-  overflow:hidden;
 }
-
-/* Glow effect */
-.lux-btn::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:-100%;
-  width:100%;
-  height:100%;
-  background:linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition:0.5s;
-}
-
-.lux-btn:hover::before{
-  left:100%;
-}
-
-.lux-btn:hover{
-  transform:translateY(-4px) scale(1.05);
-  box-shadow:0 10px 30px rgba(0,0,0,0.4);
-}
-
-/* Brand Colors Glow */
-.telegram i{ color:#24A1DE; font-size:20px; }
-.telegram:hover{ box-shadow:0 0 20px #24A1DE55; }
-
-.instagram i{ color:#E4405F; font-size:20px; }
-.instagram:hover{ box-shadow:0 0 20px #E4405F55; }
-
-.whatsapp i{ color:#25D366; font-size:20px; }
-.whatsapp:hover{ box-shadow:0 0 20px #25D36655; }
 
 </style>
 
@@ -690,20 +1093,20 @@ text-align:center;
 <!-- LOADER -->
 
 <div class="loader" id="loader">
-<h1>IT.dev</h1>
+<h1>ISKAK.dev</h1>
 </div>
 
-<!-- BG -->
+<!-- BACKGROUND -->
 
 <div class="bg"></div>
 <div class="grid-bg"></div>
-<div class="blur1"></div>
-<div class="blur2"></div>
+
 <div class="cursor"></div>
 
 <!-- PARTICLES -->
 
 <div class="particles">
+
 <span style="left:10%;animation-delay:0s"></span>
 <span style="left:20%;animation-delay:2s"></span>
 <span style="left:30%;animation-delay:4s"></span>
@@ -713,6 +1116,7 @@ text-align:center;
 <span style="left:70%;animation-delay:5s"></span>
 <span style="left:80%;animation-delay:7s"></span>
 <span style="left:90%;animation-delay:1s"></span>
+
 </div>
 
 <!-- NAVBAR -->
@@ -720,14 +1124,16 @@ text-align:center;
 <nav>
 
 <div class="logo">
-IT.dev
+ISKAK.dev
 </div>
 
 <div class="menu">
+
 <a href="#about">About</a>
 <a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
 <a href="#contact">Contact</a>
+
 </div>
 
 <div class="menu-btn" id="menuBtn">
@@ -754,23 +1160,38 @@ IT.dev
 
 <div class="hero-box">
 
+<!-- LEFT -->
+
 <div>
 
 <div class="badge">
+
 <div class="dot"></div>
+
 AI ENGINEER • FULL STACK
+
 </div>
 
 <h1>
+
 Build <br>
-<span class="gradient">Future</span><br>
+
+<span class="gradient">
+Future
+</span>
+
+<br>
+
 Systems
+
 </h1>
 
 <p>
+
 Premium AI жана Full Stack Developer.
-Luxury деңгээлдеги заманбап
-web systems жана digital platform'дорду жасайм.
+Apple/Vercel/Tesla стилиндеги ultra modern
+website, AI systems жана luxury digital platform'дорду жасайм.
+
 </p>
 
 <div class="hero-buttons">
@@ -787,14 +1208,24 @@ CONTACT ME
 
 </div>
 
-<!-- AI CARD -->
+<!-- RIGHT -->
+
+<div class="hero-right">
+
+<!-- PROFILE -->
+
+
+
+<!-- CODE CARD -->
 
 <div class="hero-card">
 
 <div class="top-bar">
+
 <div class="circle red"></div>
 <div class="circle yellow"></div>
 <div class="circle green"></div>
+
 </div>
 
 <div class="code">
@@ -802,15 +1233,22 @@ CONTACT ME
 <span>class</span> AIEngineer:<br><br>
 
 &nbsp;&nbsp;<span>def</span> __init__(self):<br>
+
 &nbsp;&nbsp;&nbsp;&nbsp;self.name = "ISKAK"<br>
+
 &nbsp;&nbsp;&nbsp;&nbsp;self.stack = "Django Full Stack"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;self.level = "Ultra Premium"<br><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;self.level = "Premium"<br><br>
 
 &nbsp;&nbsp;<span>def</span> build(self):<br>
+
 &nbsp;&nbsp;&nbsp;&nbsp;return "Future Systems"<br><br>
 
 &nbsp;&nbsp;<span>def</span> deploy(self):<br>
+
 &nbsp;&nbsp;&nbsp;&nbsp;return "Fast & Secure"<br>
+
+</div>
 
 </div>
 
@@ -831,24 +1269,43 @@ About Me
 <div class="grid">
 
 <div class="card">
+
 <h3>⚡ Full Stack Development</h3>
+
 <p>
-Backend, API, Authentication жана scalable systems.
+
+Backend systems, REST API,
+Authentication, Admin Panel,
+PostgreSQL жана scalable architecture.
+
 </p>
+
 </div>
 
 <div class="card">
+
 <h3>🚀 Luxury UI/UX</h3>
+
 <p>
-Apple/Tesla/Vercel стилиндеги modern интерфейстер.
+
+Apple/Tesla/Vercel стилиндеги
+premium animation жана futuristic интерфейстер.
+
 </p>
+
 </div>
 
 <div class="card">
+
 <h3>🤖 AI Integration</h3>
+
 <p>
-AI systems, automation жана smart solutions.
+
+AI systems, automation,
+smart assistant жана modern digital solutions.
+
 </p>
+
 </div>
 
 </div>
@@ -866,18 +1323,27 @@ Achievements
 <div class="stats">
 
 <div class="stat">
+
 <div class="num" data-target="15">0</div>
+
 <p>Projects</p>
+
 </div>
 
 <div class="stat">
+
 <div class="num" data-target="3">0</div>
+
 <p>Years Experience</p>
+
 </div>
 
 <div class="stat">
+
 <div class="num" data-target="100">0</div>
+
 <p>% Satisfaction</p>
+
 </div>
 
 </div>
@@ -892,6 +1358,7 @@ Achievements
 Tech Stack
 </h2>
 
+
 <div class="grid">
 
 <div class="card">
@@ -901,17 +1368,17 @@ Tech Stack
 
 <div class="card">
 <h3>🚀 Django</h3>
-<p>Scalable applications.</p>
+<p>Scalable web applications.</p>
 </div>
 
 <div class="card">
 <h3>⚡ JavaScript</h3>
-<p>Modern frontend UI.</p>
+<p>Modern interactive UI.</p>
 </div>
 
 <div class="card">
 <h3>☁️ Deployment</h3>
-<p>Cloud & VPS systems.</p>
+<p>Cloud, VPS & production systems.</p>
 </div>
 
 <div class="card">
@@ -921,7 +1388,32 @@ Tech Stack
 
 <div class="card">
 <h3>🎨 UI/UX</h3>
-<p>Luxury digital interfaces.</p>
+<p>Luxury premium interfaces.</p>
+</div>
+<div class="tech-marquee">
+
+<div class="tech-track">
+
+<div class="tech-item">Python</div>
+<div class="tech-item">Django</div>
+<div class="tech-item">PostgreSQL</div>
+<div class="tech-item">JavaScript</div>
+<div class="tech-item">AI Systems</div>
+<div class="tech-item">UI/UX</div>
+<div class="tech-item">Cloud</div>
+<div class="tech-item">Automation</div>
+
+<div class="tech-item">Python</div>
+<div class="tech-item">Django</div>
+<div class="tech-item">PostgreSQL</div>
+<div class="tech-item">JavaScript</div>
+<div class="tech-item">AI Systems</div>
+<div class="tech-item">UI/UX</div>
+<div class="tech-item">Cloud</div>
+<div class="tech-item">Automation</div>
+
+</div>
+
 </div>
 
 </div>
@@ -938,50 +1430,89 @@ Projects
 
 <div class="grid">
 
+<!-- PROJECT 1 -->
+
 <div class="card">
+
+<div class="project-image">
+
+<img src="https://i.pinimg.com/736x/da/1f/aa/da1faa289665b8e5a89795227584e5ea.jpg" alt="Travel Lux">
+
+</div>
 
 <h3>Travel Lux</h3>
 
 <p>
+
 Luxury travel booking platform.
+Modern premium UI жана fast backend systems.
+
 </p>
 
 <a href="https://travel-lux-1.onrender.com"
 target="_blank"
 class="project-link">
-Open →
+
+Open Project →
+
 </a>
 
 </div>
 
+<!-- PROJECT 2 -->
+
 <div class="card">
+
+<div class="project-image">
+
+<img src="https://i.pinimg.com/webp/1200x/3c/a2/bd/3ca2bdce652229eba7b2db89194f29be.webp" alt="Strawberry Shop">
+
+</div>
 
 <h3>Strawberry Shop</h3>
 
 <p>
+
 Premium ecommerce platform.
+Modern animation жана stylish luxury design.
+
 </p>
 
 <a href="https://strawberry-shop-v2.onrender.com"
 target="_blank"
 class="project-link">
-Open →
+
+Open Project →
+
 </a>
 
 </div>
 
+<!-- PROJECT 3 -->
+
 <div class="card">
+
+<div class="project-image">
+
+<img src="https://i.pinimg.com/736x/eb/f9/1e/ebf91e4b2a7e5f80d7fb49db3689bc20.jpg" alt="Lux.kg">
+
+</div>
 
 <h3>Lux.kg</h3>
 
 <p>
-Luxury Кыргызстан ecommerce.
+
+Luxury Кыргызстан ecommerce platform.
+Fast modern scalable digital system.
+
 </p>
 
 <a href="https://lux.kg"
 target="_blank"
 class="project-link">
-Open →
+
+Open Project →
+
 </a>
 
 </div>
@@ -994,66 +1525,96 @@ Open →
 
 <section id="contact" class="reveal">
 
-  <h2 class="section-title">Contact</h2>
+<h2 class="section-title">
+Contact
+</h2>
 
-  <div class="contact-buttons">
+<div class="contact-buttons">
 
-    <!-- Telegram -->
-    <a class="lux-btn telegram" href="https://t.me/Iskhak_99" target="_blank">
-      <i class="fa-brands fa-telegram"></i>
-      Telegram
-    </a>
+<a class="lux-btn telegram"
+href="https://t.me/Iskhak_99"
+target="_blank">
 
-    <!-- Instagram -->
-    <a class="lux-btn instagram" href="https://instagram.com/your_username" target="_blank">
-      <i class="fa-brands fa-instagram"></i>
-      Instagram
-    </a>
+<i class="fa-brands fa-telegram"></i>
 
-    <!-- WhatsApp -->
-    <a class="lux-btn whatsapp" href="https://wa.me/996553956070" target="_blank">
-      <i class="fa-brands fa-whatsapp"></i>
-      WhatsApp
-    </a>
+Telegram
 
-  </div>
+</a>
+
+<a class="lux-btn instagram"
+href="https://instagram.com/your_username"
+target="_blank">
+
+<i class="fa-brands fa-instagram"></i>
+
+Instagram
+
+</a>
+
+<a class="lux-btn whatsapp"
+href="https://wa.me/996553956070"
+target="_blank">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+WhatsApp
+
+</a>
+
+</div>
+
+<!-- RUNNING TECH -->
+
+
 
 </section>
 
+<!-- FOOTER -->
+
 <footer>
+
 © 2026 ISKAK.dev — AI Software Engineer
+
 </footer>
 
 <script>
 
-/* LOADER */
+/* =========================================================
+LOADER
+========================================================= */
 
-window.addEventListener('load', ()=>{
+window.addEventListener('load',()=>{
 
 setTimeout(()=>{
 
 document.getElementById('loader').style.opacity='0';
 
 setTimeout(()=>{
+
 document.getElementById('loader').style.display='none';
+
 },1000);
 
 },1500);
 
 });
 
-/* CURSOR */
+/* =========================================================
+CURSOR
+========================================================= */
 
 const cursor=document.querySelector('.cursor');
 
 document.addEventListener('mousemove',e=>{
 
-cursor.style.left=(e.clientX-130)+'px';
-cursor.style.top=(e.clientY-130)+'px';
+cursor.style.left=(e.clientX-150)+'px';
+cursor.style.top=(e.clientY-150)+'px';
 
 });
 
-/* REVEAL */
+/* =========================================================
+REVEAL
+========================================================= */
 
 const reveals=document.querySelectorAll('.reveal');
 
@@ -1073,13 +1634,16 @@ entry.target.classList.add('show');
 
 reveals.forEach(el=>observer.observe(el));
 
-/* COUNTER */
+/* =========================================================
+COUNTER
+========================================================= */
 
 const nums=document.querySelectorAll('.num');
 
 nums.forEach(num=>{
 
 let target=+num.dataset.target;
+
 let count=0;
 
 let interval=setInterval(()=>{
@@ -1099,14 +1663,18 @@ num.textContent=count;
 
 });
 
-/* MOBILE MENU */
+/* =========================================================
+MOBILE MENU
+========================================================= */
 
 const menuBtn=document.getElementById('menuBtn');
+
 const mobileMenu=document.getElementById('mobileMenu');
 
 menuBtn.addEventListener('click',()=>{
 
 menuBtn.classList.toggle('active');
+
 mobileMenu.classList.toggle('active');
 
 });
@@ -1116,7 +1684,34 @@ document.querySelectorAll('.mobile-menu a').forEach(link=>{
 link.addEventListener('click',()=>{
 
 menuBtn.classList.remove('active');
+
 mobileMenu.classList.remove('active');
+
+});
+
+});
+
+/* =========================================================
+MAGNET EFFECT
+========================================================= */
+
+document.querySelectorAll('.btn,.lux-btn').forEach(btn=>{
+
+btn.addEventListener('mousemove',(e)=>{
+
+const rect=btn.getBoundingClientRect();
+
+const x=e.clientX-rect.left-rect.width/2;
+const y=e.clientY-rect.top-rect.height/2;
+
+btn.style.transform=
+`translate(${x*.12}px,${y*.12}px)`;
+
+});
+
+btn.addEventListener('mouseleave',()=>{
+
+btn.style.transform='translate(0,0)';
 
 });
 

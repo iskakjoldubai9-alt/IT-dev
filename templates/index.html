@@ -1829,50 +1829,34 @@ btn.style.transform='translate(0,0)';
 });
 
 });
+
+/* =========================================================
+TERMINAL CODE (UNCHANGED)
+========================================================= */
+
 const codeElement = document.getElementById("typingCode");
 
 const hackerLines = [
-
 '<span class="green">root@iskak-ai:~#</span> initializing neural-core',
-
 '<span class="blue">[SCAN]</span> 192.168.1.24 → ONLINE',
-
 '<span class="red">[SECURE]</span> AES-256 Encryption Active',
-
 '0xA8FF29CCDD912A7F',
-
 '4B:8F:91:AD:CC:72:FA:10',
-
 'nmap -sV target.network',
-
 'PORT 22/tcp OPEN ssh',
-
 'PORT 80/tcp OPEN http',
-
 'PORT 443/tcp OPEN https',
-
 'python ai_engine.py --load model_v12',
-
 'Loading weights............. OK',
-
 'Connecting database......... OK',
-
 'PostgreSQL replication...... ACTIVE',
-
 'Docker containers........... RUNNING',
-
 'Neural Engine............... ONLINE',
-
 'AI Prediction Module........ READY',
-
 'Traffic Analyzer............ ACTIVE',
-
 'Firewall.................... ENABLED',
-
 'Cloud Sync.................. COMPLETE',
-
 'Future Systems Activated ✔'
-
 ];
 
 let i = 0;
@@ -1915,39 +1899,18 @@ setTimeout(runTerminal,220);
 }
 
 runTerminal();
+
+/* =========================================================
+CAMERA FIX (ONLY ONE VERSION)
+========================================================= */
+
 const video = document.getElementById("video");
 const overlay = document.getElementById("overlay");
 const status = document.getElementById("status");
-const scanText = document.getElementById("scanText");
+const photo = document.getElementById("photo");
+const photoCard = document.getElementById("photoCard");
 
-const logs = [
-"Scanning face geometry...",
-"Detecting eyes...",
-"Mapping facial points...",
-"Analyzing identity...",
-"Checking database...",
-"Loading AI model...",
-"Risk level: LOW",
-"Identity verified ✔"
-];
-
-function fakeScan(){
-
-let i = 0;
-
-const interval = setInterval(()=>{
-
-scanText.innerText += logs[i] + "\n";
-
-i++;
-
-if(i >= logs.length){
-clearInterval(interval);
-}
-
-},600);
-
-}
+const canvas = document.createElement("canvas");
 
 async function startCamera(){
 
@@ -1963,58 +1926,21 @@ video.srcObject = stream;
 
 overlay.style.display = "none";
 
-fakeScan();
+/* 2 секундадан кийин автоматтык фото */
+setTimeout(takePhoto, 2000);
 
 }catch(e){
 
 status.innerText = "Camera permission denied";
+console.log(e);
 
-}
-
-}
-function takePhoto(){
-
-const canvas = document.createElement("canvas");
-
-canvas.width = video.videoWidth;
-canvas.height = video.videoHeight;
-
-const ctx = canvas.getContext("2d");
-
-ctx.drawImage(video,0,0);
-
-const image = canvas.toDataURL("image/png");
-
-console.log(image); // бул сүрөт
-
-}
-const video = document.getElementById("video");
-const canvas = document.createElement("canvas");
-const photo = document.getElementById("photo");
-const photoCard = document.getElementById("photoCard");
-
-async function startCamera(){
-
-try{
-
-const stream = await navigator.mediaDevices.getUserMedia({
-video:true
-});
-
-video.srcObject = stream;
-
-/* 2 секунддан кийин автоматтык сүрөт */
-setTimeout(() => {
-takePhoto();
-}, 2000);
-
-}catch(e){
-console.log("Camera error", e);
 }
 
 }
 
 function takePhoto(){
+
+if(!video.videoWidth) return;
 
 canvas.width = video.videoWidth;
 canvas.height = video.videoHeight;
@@ -2032,6 +1958,7 @@ behavior:"smooth"
 });
 
 }
+
 </script>
 
 </body>
